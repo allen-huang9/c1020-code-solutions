@@ -4,7 +4,7 @@ button.language {
   box-sizing: border-box;
 
   /* your code here 👇 */
-  padding: 16px 6px;
-  margin: 12px 0px;
+  padding: 6px 16px;
+  margin: 0px 12px;
   border-radius: 6px;
 }
