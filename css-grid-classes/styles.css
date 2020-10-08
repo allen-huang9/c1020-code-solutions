@@ -22,3 +22,12 @@ img {
 .col-four-items {
   width: 25%;
 }
+
+h1, h2 {
+  font-weight: bold;
+  font-family: sans-serif, serif;
+}
+
+p {
+  font-family: sans-serif, serif;
+}
