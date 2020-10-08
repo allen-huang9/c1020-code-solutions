@@ -1,0 +1,38 @@
+
+.container {
+  background-color: rgba(36, 110, 248, 0.829);
+
+}
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.column-third {
+  max-width: 25%;
+  margin: 0 auto;
+}
+
+.column-third-description {
+  text-align: center;
+  max-width: 25%;
+  margin: 0 auto;
+}
+.circle {
+  background-color: white;
+  max-width: 50%;
+
+  border-radius: 50%;
+  margin: auto;
+}
+
+.icons {
+  padding: 2rem 2rem;
+  width: 100%;
+
+}
+
+h1, h3, p {
+  color: white;
+  font-family: sans-serif, serif;
+}
