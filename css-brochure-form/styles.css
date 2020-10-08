@@ -1,0 +1,42 @@
+
+label {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+h1 {
+  color: #f56942;
+  text-transform: uppercase;
+  text-align: center;
+}
+body {
+  font-family: 'Brandon Grotesque';
+}
+input {
+  width: 25rem;
+  height: 2rem;
+  border-radius: 5px;
+}
+
+select {
+  background-color: lightgray;
+  width: 25rem;
+  height: 2rem;
+  border-radius: 5px;
+}
+button {
+  width: 5rem;
+  height: 2rem;
+  float: right;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #f56942;
+  color: white;
+  border-radius: 15px;
+}
+
+.lay-out {
+  display: flex;
+  justify-content: center;
+}
