@@ -18,7 +18,7 @@
   /* your code here */
   position: absolute;
   top: 1rem;
-  left: 14rem;
+  right: 1rem;
 }
 
 .joke {
@@ -31,8 +31,8 @@
   text-transform: uppercase;
 
   /* your code here */
-  position: relative;
-  top: 12rem;
+  position: absolute;
+  bottom: 0.5rem;
 }
 
 .overlay {
