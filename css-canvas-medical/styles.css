@@ -1,18 +1,16 @@
 header {
   display: flex;
-  width: 100%;
+  width: 1600px;
   height: 70px;
   align-items: center;
+  margin: 0 auto;
 }
 
-a {
+.page-links a {
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
 }
 
-.header-half img {
-  margin-left: 10rem;
-}
 .page-links a:not(:last-child) {
   color: grey;
 }
@@ -31,6 +29,7 @@ a:link {
   background-color: blue;
   border-radius: 5%;
 }
+
 .header-half {
   width: 50%;
 
@@ -38,19 +37,125 @@ a:link {
 
 .page-links {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+}
+/*----------------------------------------------------------------*/
+
+p {
+  font-family: 'avenir', 'Times New Roman', Times, serif;
 }
 
-/*----------------------------------------------------------------*/
+.emr-content p {
+  line-height: 3rem;
+}
+
+.start {
+  width: 15rem;
+  height: 5rem;
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(0, 0, 102);
+  border: none;
+  border-radius: 5%;
+}
+
 .emr-primary-care-section {
   background-image: url('images/hero.jpg');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  height: 800px;
+  margin: 0 auto;
+  width: 1600px;
+  height: 900px;
+  position: relative;
 }
 
 .emr-content {
+  width: 40%;
+  position: absolute;
+  top: 5rem;
+  left: 10rem;
+  font-size: 1.4rem;
+  color: white;
+}
+/*----------------------------------------------------------------*/
+
+.clinicians-preferance {
+  padding: 20px 0 30px;
+  margin: 40px 0;
+  background-color: whitesmoke;
+  color: rgba(83, 78, 78, 0.466);
+}
+
+.clinicians-preferance p {
+  line-height: 2rem;
+  font-size: 1.3rem;
+}
+
+.column-full {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.column-half {
   width: 50%;
-  line-height: 1.5rem;
+  text-align: center;
+}
+/*----------------------------------------------------------------*/
+
+.learn-more {
+  width: 1600px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.text {
+  color: rgba(83, 78, 78, 0.466);
+}
+/*----------------------------------------------------------------*/
+
+.learn-more {
+  width: 1600px;
+  margin: 0 auto;
+  text-align: center;
+}
+/*----------------------------------------------------------------*/
+
+.info {
+  background-color: gray;
+}
+
+.info .row {
+  width: 1600px;
+  margin: 0 auto;
+}
+
+.column-third {
+  color: white;
+  font-family: 'avenir', 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+  width: 400px;
+  text-align: left;
+  padding: 30px 0;
+}
+
+.info-links {
+  margin-bottom: 1rem;
+}
+/*----------------------------------------------------------------*/
+
+footer {
+  padding: 30px 0;
+  background-color: whitesmoke;
+}
+
+footer a {
+  color: rgba(83, 78, 78, 0.466);
+  font-family: 'avenir', 'Times New Roman', Times, serif;
+  margin-left: 5rem;
 }
