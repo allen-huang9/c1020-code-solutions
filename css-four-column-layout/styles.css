@@ -1,0 +1,27 @@
+body {
+  font-family: 'Barlow', sans-serif;
+}
+
+
+.container {
+  background-color: whitesmoke;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.col-fourth {
+  width: 20%;
+  text-align: center;
+}
+
+.image-ss img {
+  width: 75%;
+}
+
+.icon img {
+  width: 25%;
+}
