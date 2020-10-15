@@ -15,42 +15,25 @@
 
 .item-picture-black-dress {
   background-image: url('images/dress1.jpeg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 290px;
-  height: 450px;
 }
 
 .item-picture-ysl-bag {
   background-image: url('images/ysl-bag.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 290px;
-  height: 450px;
 }
 
 .item-picture-key {
   background-image: url('images/key.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 290px;
-  height: 450px;
 }
 
 .item-picture-lv-bag {
   background-image: url('images/lv-bag.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 290px;
-  height: 450px;
 }
 
 .item-picture-dress2 {
   background-image: url('images/dress2.jpeg');
+}
+
+.image-config {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
