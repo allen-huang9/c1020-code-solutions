@@ -1,3 +1,7 @@
+.container {
+  font-family: 'DM Sans', sans-serif;
+}
+
 .row {
   display: flex;
   justify-content: center;
@@ -6,6 +10,7 @@
 
 .col-fifth {
   width: calc(100%/6);
+  margin: 0 20px;
 }
 
 .item-picture-black-dress {
@@ -51,4 +56,12 @@
   background-repeat: no-repeat;
   width: 290px;
   height: 450px;
+}
+
+.size-price {
+  color: lightgrey;
+}
+
+.brand-name-price {
+  font-weight: bold;
 }
