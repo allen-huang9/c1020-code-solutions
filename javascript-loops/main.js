@@ -8,11 +8,12 @@
  */
 
 function getNumbersToTen() {
-  var currentNumber;
+  var currentNumber = 1;
   var numbers = [];
 
-  for (currentNumber = 1; currentNumber <= 10; currentNumber++) {
+  while (currentNumber <= 10) {
     numbers.push(currentNumber);
+    currentNumber++;
   }
 
   return numbers;
@@ -20,21 +21,23 @@ function getNumbersToTen() {
 
 function getEvenNumbersToTwenty() {
   var evenNumbers = [];
-  var currentNumber;
+  var currentNumber = 2;
 
-  for (currentNumber = 2; currentNumber <= 20; currentNumber += 2) {
+  while (currentNumber <= 20) {
     evenNumbers.push(currentNumber);
+    currentNumber += 2;
   }
 
   return evenNumbers;
 }
 
 function repeatWord(word, times) {
-  var count;
+  var count = 1;
   var repeated = '';
 
-  for (count = 1; count <= times; count++) {
+  while (count <= times) {
     repeated += word;
+    count++;
   }
 
   return repeated;
