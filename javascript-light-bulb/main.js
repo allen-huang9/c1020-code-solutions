@@ -1,7 +1,7 @@
 var currentState = document.querySelector('.circle');
+var lightState = currentState.className.split(' ');
 
 function lightSwitch(event) {
-  var lightState = currentState.className.split(' ');
   if (lightState[1] === 'on') {
     lightState[1] = 'off';
   } else {
