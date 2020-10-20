@@ -15,16 +15,16 @@ body.off {
 }
 
 .circle {
-  width: 100px;
-  height: 100px;
+  width: 500px;
+  height: 500px;
 
   border-radius: 50%;
 }
 
 .circle.on {
-  background-color: yellow;
+  background-color: rgb(238, 240, 116);
 }
 
 .circle.off {
-  background-color: rgb(73, 68, 68);
+  background-color: rgb(32, 32, 32);
 }
