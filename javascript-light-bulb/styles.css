@@ -1,0 +1,30 @@
+
+body.on {
+  background-color: rgb(236, 231, 220);
+}
+
+body.off {
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+}
+
+.circle.on {
+  background-color: yellow;
+}
+
+.circle.off {
+  background-color: rgb(73, 68, 68);
+}
