@@ -15,13 +15,13 @@ $tabContainer.addEventListener('click', function (e) {
         e.target.className = 'tab active';
       }
     }
-  }
 
-  for (var j = 0; j < $viewList.length; j++) {
-    if ($currentDataView !== $viewList[j].getAttribute('data-view')) {
-      $viewList[j].className = 'view hidden';
-    } else {
-      $viewList[j].className = 'view';
+    for (var j = 0; j < $viewList.length; j++) {
+      if ($currentDataView !== $viewList[j].getAttribute('data-view')) {
+        $viewList[j].className = 'view hidden';
+      } else {
+        $viewList[j].className = 'view';
+      }
     }
   }
 });
