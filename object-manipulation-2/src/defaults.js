@@ -2,24 +2,32 @@
 
 function defaults(target, source) {
 
-  var keysIntarget = [];
-  var notShared = {};
+  var keysInTarget = [];
   var shared = false;
-  var i;
+  var i = 0;
 
-  for(var targetKeys in )
-
-  for (var objectKey in source) {
-    for (i = 0; i < keys.length; i++) {
-      if (objectKey === keys[i]) {
-        shared = true;
-      }
-    }
-    if (shared === false && source[objectKey] !== undefined) {
-      notShared[objectKey] = source[objectKey];
-    }
-    shared = false;
+  for (var targetKeys in target) {
+    keysInTarget.push(targetKeys);
   }
 
+  if (keysInTarget.length > 0) {
+    for (var objectKey in source) {
+      while (shared === false && i < keysInTarget.length) {
+        if (objectKey === keysInTarget[i]) {
+          shared = true;
+        }
+        i++;
+      }
+      if (shared === false && source[objectKey] !== undefined) {
+        target[objectKey] = source[objectKey];
+      }
+      shared = false;
+    }
+  } else {
+    for (var objKey in source) {
+      target[objKey] = source[objKey];
+    }
+  }
 
+  return target;
 }
