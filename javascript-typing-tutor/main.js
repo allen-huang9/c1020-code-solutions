@@ -7,5 +7,9 @@ document.addEventListener('keydown', function (e) {
     $sentence[index].className += ' incorrect';
   } else {
     $sentence[index].className = 'correct';
+
+    if (index !== $sentence.length) {
+      $sentence[++index].className = 'current-letter';
+    }
   }
 });
