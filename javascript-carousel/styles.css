@@ -1,0 +1,27 @@
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.column-fifth {
+  font-size: 100px;
+  text-align: center;
+  width: 25%;
+}
+
+.column-half {
+  text-align: center;
+  width: 50%;
+}
+
+.mod-font-size {
+  font-size: 25px;
+  padding: 0 20px;
+}
+
+.first-row-height {
+  height: 600px;
+}
