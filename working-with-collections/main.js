@@ -58,8 +58,6 @@ for (var i = 0; i < 4; i++) {
   }
 }
 
-// console.log(deck);
-
 deck = _.shuffle(deck);
 
 var handSize = 2;
@@ -75,7 +73,6 @@ for (var p = 0; p < group.length; p++) {
 
   console.log(group[p].name, ' hand is ', group[p].hand);
 }
-// console.log(deck);
 
 var winner = findWinner(playerScore);
 console.log('The winner of is ', group[winner].name);
@@ -90,9 +87,8 @@ function findWinner(scores) {
       highest = scores[i];
       winnerIndex = i;
     }
-    // console.log('in loop winnerIndex = ', winnerIndex);
   }
-  // console.log('winnerIndex = ', winnerIndex);
+
   return winnerIndex;
 }
 
