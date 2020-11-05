@@ -62,18 +62,49 @@ for (var i = 0; i < 4; i++) {
 
 deck = _.shuffle(deck);
 
+var handSize = 2;
+var cardIndex = 0;
+
+var playerScore = [];
+for (var p = 0; p < group.length; p++) {
+  for (var h = 0; h < handSize; h++) {
+    group[p].hand.push(deck[cardIndex]);
+    cardIndex++;
+  }
+  playerScore.push(score(group[p].hand));
+
+  console.log(group[p].name, ' hand is ', group[p].hand);
+}
 // console.log(deck);
+
+var winner = findWinner(playerScore);
+console.log('The winner of is ', group[winner].name);
+
+function findWinner(scores) {
+  var highest = 0;
+  var winnerIndex = null;
+
+  for (var i = 0; i < scores.length; i++) {
+    console.log('scores: ', scores[i]);
+    if (scores[i] > highest) {
+      highest = scores[i];
+      winnerIndex = i;
+    }
+    // console.log('in loop winnerIndex = ', winnerIndex);
+  }
+  // console.log('winnerIndex = ', winnerIndex);
+  return winnerIndex;
+}
 
 function score(cards) {
   var score = 0;
   for (var i = 0; i < cards.length; i++) {
     if (cards[i].rank === 'Ace') {
       score += 11;
-    } else if (cards[i].rank === 'Jack' || cards[i].rank === 'Queen' ||
-    cards[i].rank === 'King') {
+    } else if (cards[i].rank === 'Jack' || cards[i].rank === 'Queen' || cards[i].rank === 'King') {
       score += 10;
     } else {
-      score += rank;
+      score += cards[i].rank;
     }
   }
 
