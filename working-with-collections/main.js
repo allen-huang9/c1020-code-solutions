@@ -2,25 +2,30 @@
 /* eslint-disable no-console */
 console.log('Lodash is loaded:', typeof _ !== 'undefined');
 
-function game() {
-  var group = [
-    {
-      name: 'player 1',
-      hand: []
-    },
-    {
-      name: 'player 2',
-      hand: []
-    },
-    {
-      name: 'player 3',
-      hand: []
-    },
-    {
-      name: 'player 4',
-      hand: []
-    }
-  ];
+var group = [
+  {
+    name: 'player 1',
+    hand: []
+  },
+  {
+    name: 'player 2',
+    hand: []
+  },
+  {
+    name: 'player 3',
+    hand: []
+  },
+  {
+    name: 'player 4',
+    hand: []
+  }
+];
+
+var handSize = 5;
+
+game(group, handSize);
+
+function game(players, handSize) {
 
   var deck = [];
   var suit = '';
@@ -61,22 +66,21 @@ function game() {
 
   deck = _.shuffle(deck);
 
-  var handSize = 2;
   var cardIndex = 0;
 
   var playerScore = [];
   for (var p = 0; p < group.length; p++) {
     for (var h = 0; h < handSize; h++) {
-      group[p].hand.push(deck[cardIndex]);
+      players[p].hand.push(deck[cardIndex]);
       cardIndex++;
     }
-    playerScore.push(score(group[p].hand));
+    playerScore.push(score(players[p].hand));
 
-    console.log(group[p].name, ' hand is ', group[p].hand);
+    console.log(players[p].name, ' hand is ', players[p].hand);
   }
 
   var winner = findWinner(playerScore);
-  console.log('The winner of is ', group[winner].name);
+  console.log('The winner of is ', players[winner].name);
 }
 
 function findWinner(scores) {
