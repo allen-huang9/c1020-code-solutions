@@ -1,0 +1,42 @@
+
+p {
+  text-align: center;
+}
+
+h1 {
+  font-family: monospace, serif;
+  font-size: 45px;
+}
+
+span {
+  color: black;
+  border-bottom-width: 0.2rem;
+  border-bottom-style: none;
+  border-bottom-color: black;
+}
+
+.container {
+  width: 800px;
+  height: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-letter {
+  border-bottom-style: solid;
+}
+
+.correct {
+  color: chartreuse;
+}
+
+.current-letter.incorrect {
+  color: red;
+  border-bottom-color: red;
+}
