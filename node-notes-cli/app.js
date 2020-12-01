@@ -50,7 +50,7 @@ if (operation === 'read') {
   }
 } else if (operation === 'create') {
   const processArray = process.argv;
-  const newNote = processArray.splice(0, 3);
+  const newNote = processArray.slice(3);
 
   jsonNotes[dataJson.nextId] = reCreateNote(newNote);
   dataJson.nextId++;
