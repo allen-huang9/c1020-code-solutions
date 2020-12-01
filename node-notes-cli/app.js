@@ -10,14 +10,14 @@ const jsonNotes = dataJson.notes;
 const notesIndex = Object.keys(jsonNotes);
 
 if (operation === 'read') {
-  fs.readFile('data.json', 'utf8', (err, data) => {
+  // fs.readFile('data.json', 'utf8', (err, data) => {
 
-    if (err) throw err;
+  // if (err) throw err;
 
-    for (let i = 0; i < notesIndex.length; i++) {
-      console.log(notesIndex[i] + ': ' + jsonNotes[notesIndex[i]]);
-    }
-  });
+  for (let i = 0; i < notesIndex.length; i++) {
+    console.log(notesIndex[i] + ': ' + jsonNotes[notesIndex[i]]);
+  }
+  // });
 } else if (operation === 'delete') {
 
   if (notesIndex.includes(choice)) {
@@ -36,9 +36,9 @@ if (operation === 'read') {
   if (notesIndex.includes(choice)) {
 
     const processArray = process.argv;
-    processArray.splice(0, 4);
+    const editedNote = processArray.slice(4);
 
-    const updatedNote = reCreateNote(processArray);
+    const updatedNote = reCreateNote(editedNote);
     jsonNotes[choice] = updatedNote;
 
     const jsonString = JSON.stringify(dataJson, null, 2);
@@ -50,9 +50,9 @@ if (operation === 'read') {
   }
 } else if (operation === 'create') {
   const processArray = process.argv;
-  processArray.splice(0, 3);
+  const newNote = processArray.splice(0, 3);
 
-  jsonNotes[dataJson.nextId] = reCreateNote(processArray);
+  jsonNotes[dataJson.nextId] = reCreateNote(newNote);
   dataJson.nextId++;
 
   const jsonString = JSON.stringify(dataJson, null, 2);
