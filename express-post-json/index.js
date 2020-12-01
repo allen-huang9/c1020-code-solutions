@@ -8,8 +8,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/api/grades', (req, res) => {
-  res.json();
-  console.log(grades);
+  res.json(grades);
 });
 
 app.post('/api/grades', (req, res) => {
