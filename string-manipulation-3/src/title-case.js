@@ -35,6 +35,10 @@ function titleCase(string) {
 
   var title = '';
   for (var j = 0; j < newTitle.length; j++) {
+    // if (newTitle[j].includes(':')) {
+    //   var wordAfterSemiColon = newTitle[j + 1].split();
+    //   newTitle[j + 1] = concatSingleWord(wordAfterSemiColon);
+    // }
     if (j !== newTitle.length - 1) {
       title += newTitle[j] + ' ';
     } else {
