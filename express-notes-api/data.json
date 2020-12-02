@@ -1,5 +1,5 @@
 {
-  "nextId": 12,
+  "nextId": 13,
   "notes": {
     "1": {
       "id": 1,
@@ -28,6 +28,10 @@
     "10": {
       "content": "This note been replaced with a new one",
       "id": 10
+    },
+    "12": {
+      "content": "Testing put",
+      "id": 12
     }
   }
 }
