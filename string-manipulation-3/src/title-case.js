@@ -14,8 +14,8 @@ function titleCase(string) {
   var singleWords;
 
   for (var i = 1; i < wordsInTitle.length; i++) {
-    if (wordsInTitle[i].length > 3 && wordsInTitle[i].toLowerCase().includes('javascript')) {
-      newTitle.push('JavaScript' + wordsInTitle[i].slice(9, wordsInTitle[i].length - 1));
+    if (wordsInTitle[i].toLowerCase().includes('javascript')) { // wordsInTitle[i].length > 3 &&
+      newTitle.push('JavaScript' + wordsInTitle[i].slice(10, wordsInTitle[i].length));
     } else if (wordsInTitle[i].length > 3) {
       newTitle.push(concatSingleWord(wordsInTitle[i].split('')));
     } else if (wordsInTitle[i].toUpperCase() === 'API') {
@@ -35,10 +35,11 @@ function titleCase(string) {
 
   var title = '';
   for (var j = 0; j < newTitle.length; j++) {
-    // if (newTitle[j].includes(':')) {
-    //   var wordAfterSemiColon = newTitle[j + 1].split();
-    //   newTitle[j + 1] = concatSingleWord(wordAfterSemiColon);
-    // }
+    if (newTitle[j].includes(':')) {
+
+      var wordAfterSemiColon = newTitle[j + 1].split('');
+      newTitle[j + 1] = concatSingleWord(wordAfterSemiColon);
+    }
     if (j !== newTitle.length - 1) {
       title += newTitle[j] + ' ';
     } else {
@@ -55,6 +56,7 @@ function concatSingleWord(wordCharArray) {
     if (wordCharArray[k] === '-') {
       wordCharArray[k + 1] = wordCharArray[k + 1].toUpperCase();
     }
+
     newSingleWord += wordCharArray[k];
   }
   return newSingleWord;
