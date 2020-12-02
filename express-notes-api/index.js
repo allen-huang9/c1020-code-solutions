@@ -41,10 +41,14 @@ app.post('/api/notes', (req, res) => {
 
     const jsonString = JSON.stringify(data, null, 2);
     fs.writeFile('data.json', jsonString, err => {
-      if (err) throw err;
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+        process.exit(1);
+      } else {
+        res.status(201).json(req.body);
+      }
     });
 
-    res.status(201).json(req.body);
   } else {
 
     res.status(400).json({ error: 'content is a required field' });
