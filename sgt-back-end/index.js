@@ -30,7 +30,8 @@ app.get('/api/grades', (req, res, next) => {
 
 app.post('/api/grades', (req, res, next) => {
   const sql = `insert into "grades" ("name", "course", "score")
-                  values ($1, $2, $3)`;
+                  values ($1, $2, $3)
+                  returning *`;
 
   const { name, course, grade } = req.body;
 
@@ -52,7 +53,7 @@ app.post('/api/grades', (req, res, next) => {
   const params = [name, course, score];
   db.query(sql, params)
     .then(result => {
-      res.status(201).send(req.body);
+      res.status(201).send(result.rows[0]);
     })
     .catch(err => {
       console.error(err);
