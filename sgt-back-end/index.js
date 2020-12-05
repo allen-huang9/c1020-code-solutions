@@ -11,7 +11,7 @@ const jsonMiddleWare = express.json();
 
 app.use(jsonMiddleWare);
 
-app.get('/api/grades', (req, res, next) => {
+app.get('/api/grades', (req, res) => {
 
   const sql = 'select * from grades';
 
@@ -28,7 +28,7 @@ app.get('/api/grades', (req, res, next) => {
     });
 });
 
-app.post('/api/grades', (req, res, next) => {
+app.post('/api/grades', (req, res) => {
   const sql = `insert into "grades" ("name", "course", "score")
                   values ($1, $2, $3)
                   returning *`;
@@ -63,12 +63,14 @@ app.post('/api/grades', (req, res, next) => {
     });
 });
 
-app.put('/api/grades/:gradeId', (req, res, next) => {
+app.put('/api/grades/:gradeId', (req, res) => {
 
   const sql = `update "grades"
                 set "name" = $1, "course" = $2, "score" = $3
                 where "gradeId" = $4
                 returning *`;
+
+  const idSql = 'select "gradeId" from "grades"';
 
   const { name, course, grade } = req.body;
   const gradeId = parseInt(req.params.gradeId);
@@ -88,9 +90,6 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     return;
   }
 
-  const params = [name, course, score, gradeId];
-
-  const idSql = 'select "gradeId" from "grades"';
   let idIsValid = false;
 
   db.query(idSql)
@@ -109,10 +108,63 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
       });
     });
 
+  const params = [name, course, score, gradeId];
+
   db.query(sql, params)
     .then(result => {
       if (idIsValid) {
         res.json(result.rows[0]);
+      } else {
+        res.status(404).json({
+          error: `Cannot find grade with gradeId ${gradeId}`
+        });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
+});
+
+app.delete('/api/grades/:gradeId', (req, res) => {
+
+  const sql = 'delete from "grades" where "gradeId" = $1';
+
+  const idSql = 'select "gradeId" from "grades"';
+
+  const gradeId = parseInt(req.params.gradeId);
+  if (!Number.isInteger(gradeId) || gradeId < 1) {
+    res.status(400).json({
+      error: 'The gradeId must be a valid number'
+    });
+    return;
+  }
+
+  let idIsValid = false;
+
+  db.query(idSql)
+    .then(result => {
+      for (let i = 0; i < result.rows.length; i++) {
+        if (result.rows[i].gradeId === gradeId) {
+          idIsValid = true;
+          break;
+        }
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
+
+  const params = [gradeId];
+  db.query(sql, params)
+    .then(result => {
+      if (idIsValid) {
+        res.sendStatus(204);
       } else {
         res.status(404).json({
           error: `Cannot find grade with gradeId ${gradeId}`
