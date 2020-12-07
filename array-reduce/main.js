@@ -36,12 +36,12 @@ const balance = account.reduce((balanceTotal, transaction) => {
   const amount = transaction.amount;
 
   if (transaction.type === 'deposit') {
-    balanceTotal.amount += amount;
+    balanceTotal += amount;
   } else {
-    balanceTotal.amount -= amount;
+    balanceTotal -= amount;
   }
   return balanceTotal;
-}).amount;
+}, 0);
 
 console.log('balance: ', balance);
 
