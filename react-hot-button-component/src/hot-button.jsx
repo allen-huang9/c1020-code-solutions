@@ -3,29 +3,30 @@ import React from 'react';
 class HotButton extends React.Component {
   constructor(props) {
     super(props);
-    this.numberOfClicks = 0;
+    this.state = { numberOfClicks: 0 };
+    this.amountClicked = 0;
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.setState({
-      numberOfClicks: ++this.numberOfClicks
+      numberOfClicks: ++this.amountClicked
     });
   }
 
   render() {
     let temperatureColor;
-    if (this.numberOfClicks < 3) {
+    if (this.state.numberOfClicks < 3) {
       return <button onClick={this.handleClick}>Hot Button</button>;
-    } else if (this.numberOfClicks < 6) {
+    } else if (this.state.numberOfClicks < 6) {
       temperatureColor = 'purple';
-    } else if (this.numberOfClicks < 9) {
+    } else if (this.state.numberOfClicks < 9) {
       temperatureColor = 'light-purple';
-    } else if (this.numberOfClicks < 12) {
+    } else if (this.state.numberOfClicks < 12) {
       temperatureColor = 'red';
-    } else if (this.numberOfClicks < 15) {
+    } else if (this.state.numberOfClicks < 15) {
       temperatureColor = 'orange';
-    } else if (this.numberOfClicks < 18) {
+    } else if (this.state.numberOfClicks < 18) {
       temperatureColor = 'yellow';
     } else {
       temperatureColor = 'white';
