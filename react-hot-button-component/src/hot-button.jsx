@@ -4,13 +4,12 @@ class HotButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { numberOfClicks: 0 };
-    this.amountClicked = 0;
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.setState({
-      numberOfClicks: ++this.amountClicked
+      numberOfClicks: this.state.numberOfClicks + 1
     });
   }
 
