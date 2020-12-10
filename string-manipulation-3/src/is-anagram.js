@@ -4,8 +4,8 @@ function isAnagram(firstString, secondString) {
   var tempArray1 = firstString.split(' ');
   var tempArray2 = secondString.split(' ');
 
-  var newFirstString = stringConcat(tempArray1);
-  var newSecondString = stringConcat(tempArray2);
+  var newFirstString = tempArray1.join('');
+  var newSecondString = tempArray2.join('');
 
   var charArray = newSecondString.split('');
   var k;
@@ -21,12 +21,4 @@ function isAnagram(firstString, secondString) {
   }
   if (charArray.length === 0) return true;
   return false;
-}
-
-function stringConcat(array) {
-  var newString = '';
-  for (var i = 0; i < array.length; i++) {
-    newString += array[i];
-  }
-  return newString;
 }

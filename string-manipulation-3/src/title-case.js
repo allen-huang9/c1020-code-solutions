@@ -1,6 +1,29 @@
 /* eslint-disable no-unused-vars */
 
 function titleCase(string) {
+
+  var minorWords = [
+    'for',
+    'and',
+    'nor',
+    'but',
+    'or',
+    'yet',
+    'so',
+    'a',
+    'an',
+    'the',
+    'as',
+    'at',
+    'by',
+    'for',
+    'in',
+    'of',
+    'on',
+    'per',
+    'to'
+  ];
+
   var wordsInTitle = string.split(' ');
 
   var newTitle = [];
@@ -16,13 +39,7 @@ function titleCase(string) {
   for (var i = 1; i < wordsInTitle.length; i++) {
     if (wordsInTitle[i].length > 3) {
       newTitle.push(concatSingleWord(wordsInTitle[i].split('')));
-    } else if ((wordsInTitle[i].length < 4 && wordsInTitle[i].charAt(0).toLowerCase() === 'a') ||
-      (wordsInTitle[i].length < 4 && wordsInTitle[i].charAt(0).toLowerCase() === 'b') ||
-      (wordsInTitle[i].length < 4 && wordsInTitle[i].charAt(0).toLowerCase() === 'f') ||
-      (wordsInTitle[i].length < 4 && wordsInTitle[i].charAt(0).toLowerCase() === 'i') ||
-      (wordsInTitle[i].length < 4 && wordsInTitle[i].charAt(0).toLowerCase() === 'o') ||
-      (wordsInTitle[i].length < 4 && wordsInTitle[i].charAt(0).toLowerCase() === 'p') ||
-      (wordsInTitle[i].length < 4 && wordsInTitle[i].charAt(0).toLowerCase() === 't')) {
+    } else if (minorWords.includes(wordsInTitle[i].toLowerCase())) {
       newTitle.push(wordsInTitle[i].toLowerCase());
     } else if (wordsInTitle[i].length < 4) {
       newTitle.push(concatSingleWord(wordsInTitle[i]));

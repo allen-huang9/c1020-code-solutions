@@ -6,13 +6,9 @@ function isPalindromic(string) {
 
   if (string.includes(' ')) {
     var stringArray = string.split(' ');
-    newString = '';
+    newString = stringArray.join('');
 
-    for (var k = 0; k < stringArray.length; k++) {
-      newString += stringArray[k];
-    }
-
-    stringLength = newString.length;
+    stringLength = Math.floor(newString.length / 2);
   }
 
   for (var i = 0; i < stringLength; i++) {
