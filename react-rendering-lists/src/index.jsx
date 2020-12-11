@@ -9,8 +9,10 @@ const pokedex = [
   { number: '039', name: 'Jigglypuff' }
 ];
 
-const pokemonList = pokedex.map(pokemon => {
+const pokemons = pokedex.map(pokemon => {
   return <li key={pokemon.number}>{pokemon.name}</li>;
 });
+
+const pokemonList = <ul>{pokemons}</ul>;
 
 ReactDOM.render(pokemonList, document.querySelector('#root'));
