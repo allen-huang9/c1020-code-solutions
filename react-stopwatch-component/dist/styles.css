@@ -1,3 +1,24 @@
-.circle-size {
+.stopwatch-container {
+  text-align: center;
+}
+
+.circle-size > i {
   font-size: 100px;
+  position: relative;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
 }

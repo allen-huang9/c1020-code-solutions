@@ -11,20 +11,27 @@ class Stopwatch extends React.Component {
     this.handleClickReset = this.handleClickReset.bind(this);
   }
 
-  componentDidMount() {
-    this.timerId = setInterval(() => this.setState({
-      counter: this.state.counter + 1
-    }, 1000));
+  startTimer() {
+    this.timerId = setInterval(() => {
+      this.setState({
+        counter: this.state.counter + 1
+      });
+    }, 1000);
   }
 
-  componentWillUnmount() {
+  stopTimer() {
     clearInterval(this.timerId);
   }
 
   handleClickPlayPause() {
-    this.setState({
-      isPause: !this.state.isPause
-    });
+    this.setState(state => ({
+      isPause: !state.isPause
+    }));
+    if (this.state.isPause) {
+      this.startTimer();
+    } else {
+      this.stopTimer();
+    }
   }
 
   handleClickReset() {
@@ -35,19 +42,22 @@ class Stopwatch extends React.Component {
 
   render() {
     let button;
-    if(this.state.isPause) {
-      button = "fas fa-play";
+    if (this.state.isPause) {
+      button = 'fas fa-play';
     } else {
-      button = "fas fa-pause";
+      button = 'fas fa-pause';
     }
 
     return (
-      <div></div>
-      <div className="circle-size">
-        <i onClick={this.handleClickReset} className="far fa-circle">{this.state.counter}</i>
-      </div>
-      <div className="button-size">
-        <i class={button}></i>
+      <div className="stopwatch-container">
+        <div className="circle-size">
+          <i onClick={this.handleClickReset} className="far fa-circle">
+            <div className="counter">{this.state.counter}</div>
+          </i>
+        </div>
+        <div className="button-size">
+          <i onClick={this.handleClickPlayPause} className={button}></i>
+        </div>
       </div>
     );
   }
