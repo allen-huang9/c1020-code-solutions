@@ -35,9 +35,11 @@ class Stopwatch extends React.Component {
   }
 
   handleClickReset() {
-    this.setState({
-      counter: 0
-    });
+    if (this.state.isPause) {
+      this.setState({
+        counter: 0
+      });
+    }
   }
 
   render() {
