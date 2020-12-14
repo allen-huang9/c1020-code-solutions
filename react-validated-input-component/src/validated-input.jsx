@@ -8,38 +8,35 @@ class ValidateInput extends React.Component {
       isValid: null
     };
     this.handlePassword = this.handlePassword.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handlePassword(event) {
+    event.preventDefault();
+
+    const { validPassword, reason } = this.isValidPassword(event.target.value);
+
     this.setState({
       password: event.target.value
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  isValidPassword(event) {
+    const check = {
+      validPassword: false,
+      reason: ''
+    };
 
-    // if() {
-    //   this.setState({
-    //     isValid: true
-    //   });
-    // } else {
-    //   this.setState({
-    //     isValid: false
-    //   });
-    // }
+    return check;
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <label>
             Password
-          <input type="text" value={this.state.password} onChange={}></input>
+            <input type="text" value={this.state.password} onChange={this.handlePassword}></input>
           </label>
-          <button>Submit</button>
         </form>
       </div>
     );
