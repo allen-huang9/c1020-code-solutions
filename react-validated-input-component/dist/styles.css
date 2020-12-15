@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+}
+
+i {
+  font-size: 30px;
+  margin-left: 0.5rem;
+}
+
+p {
+  margin-top: 5px;
+}
+
+p, .fa-times {
+  color: red;
+}
+
+.fa-check {
+  color: greenyellow;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+#root {
+  padding: 0.5rem;
+}
