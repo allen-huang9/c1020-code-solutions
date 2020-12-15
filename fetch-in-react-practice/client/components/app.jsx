@@ -41,6 +41,19 @@ export default class App extends React.Component {
     * TIP: Be sure to SERIALIZE the todo object in the body with JSON.stringify()
     * and specify the "Content-Type" header as "application/json"
     */
+
+    fetch('http://localhost:3000/api/todos', {
+      method: 'POST',
+      body: JSON.stringify(newTodo),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(newTodo => {
+        this.getAllTodos();
+      })
+      .catch(err => console.error('Error: ', err));
   }
 
   toggleCompleted(todoId) {
