@@ -50,9 +50,13 @@ export default class App extends React.Component {
       }
     })
       .then(response => response.json())
-      .then(updatedList => this.setState({
-        todos: updatedList
-      }))
+      .then(createdTodo => {
+        const updatedList = this.state.todos;
+        updatedList.push(createdTodo);
+        this.setState({
+          todos: updatedList
+        });
+      })
       .catch(err => console.error('Error: ', err));
   }
 
@@ -76,7 +80,11 @@ export default class App extends React.Component {
 
     for (let i = 0; i < this.state.todos.length; i++) {
       if (this.state.todos[i].todoId === todoId) {
-        updatedStatus = { isCompleted: !this.state.todos[i].isCompleted };
+        updatedStatus = {
+          task: this.state.todos[i].task,
+          todoId: todoId,
+          isCompleted: !this.state.todos[i].isCompleted
+        };
         break;
       }
     }
@@ -89,7 +97,12 @@ export default class App extends React.Component {
       }
     })
       .then(response => response.json())
-      .then(updatedList => {
+      .then(updatedTodo => {
+        const updatedList = this.state.todos.map(originalTodo => {
+          return originalTodo.todoId === updatedStatus.todoId
+            ? updatedStatus
+            : originalTodo;
+        });
         this.setState({
           todos: updatedList
         });
