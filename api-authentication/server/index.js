@@ -76,7 +76,7 @@ app.post('/api/auth/sign-in', (req, res, next) => {
         throw new ClientError(401, 'Invalid login');
       }
 
-      return argon2.verify(result.rows[0].hashedPassword, password)
+      argon2.verify(result.rows[0].hashedPassword, password)
         .then(isMatching => {
           if (isMatching) {
             const payload = {
@@ -95,9 +95,9 @@ app.post('/api/auth/sign-in', (req, res, next) => {
             throw new ClientError(401, 'Invalid login');
           }
         })
-        .catch(err => console.error('Error: ', err));
+        .catch(err => next(err));
     })
-    .catch(err => console.error('Error: ', err));
+    .catch(err => next(err));
 
 });
 
