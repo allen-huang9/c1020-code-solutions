@@ -1,0 +1,52 @@
+User can sign up.
+  client
+    - In the constructor, it the state will keep track of the username and
+      password entered. It is also binding the value of the this created by the
+      constructor to the properties handleChange and handleSubmit
+
+    - In the handleChange method, the name and value is being deconstructed from
+      the target property of the event object and is being assigned to constant
+      variables name and value. Then it calls the setState method to update the
+      username property in state and call the render method again
+
+    - In the handleSubmit method, the preventDefault method of the event object
+      is being called to prevent the page from refreshing everytime the form
+      submits new information. Then an object with the properties method,
+      headers and body is created. The object is passed to the fetch function as
+      one of its arguments. The fetch function will read the object passed in to
+      determine which request to make and what format the return should be, then
+      it make a request to the server and the return of the request will be
+      parsed into a json object. Then the view will change to the "sign-in" view.
+
+  server
+    - When a request is made, the server will first check if both username and
+      password are falsy for information validation. If it fails the check, then
+      a 400 error will be thrown with a message that describes the cause of the
+      error. If it passes the check, the hash method of the argon2 object will
+      be called hash the password. Then the result of that call will be passed
+      to the then method to create and insert an entry into the "users" table.
+      If the query is successful, a 201 status will be returned with the newly
+      created user information in the body of the response.
+
+  database
+    - creates and inserts a new entry for the user in the users table then it
+      returns the information in the userId, username and createdAt columns of
+      the new entry
+
+User can sign in.
+  client
+    - When the user first visits or reloads the page, the client will check if a
+      token exist in the localStorage
+    - If token exist then they will be shown the
+
+  server
+
+  database
+
+
+User can stay signed in.
+  client
+
+  server
+
+  database
