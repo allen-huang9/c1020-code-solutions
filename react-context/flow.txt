@@ -35,17 +35,29 @@ User can sign up.
 
 User can sign in.
   client
-    - When the user first visits or reloads the page, the client will check if a
-      token exist in the localStorage
-    - If token exist then they will be shown the
+    -
 
   server
+    - Will first check if a username and password is entered. If any of the two
+      is missing, a 401 error will be thrown and if no error is thrown then the
+      server will query the database and check if the return contained any value.
+      If there is no value, a 401 error will be thrown. Then it will compare the
+      hashed password returned by the query and the password entered by the user.
+      If the comparison returns true, the server will create a signed token and
+      send it back in the response. If the comparison returns false, a 401 error
+      will be thrown.
 
   database
+    - Compares the entered username with all the username in the users table and
+      returns the user id and the user's hashed password if their is a username
+      that matches
 
 
 User can stay signed in.
   client
+    - When the user first visits or reloads the page, the client will check if a
+      token exist in the localStorage
+    - If token exist then they will be shown the
 
   server
 
