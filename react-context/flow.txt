@@ -35,7 +35,14 @@ User can sign up.
 
 User can sign in.
   client
-    -
+    - The handleChange method will be called everytime the input fields have a
+      change and the properties in the state will be updated. Once the user
+      click on the submit button, it will call the handleSubmit method which
+      semds a request to the server. Then it will check if there is a user and
+      token property from the json object returned from the server response. If
+      those 2 exists then the handleSignIn method will be called which stores
+      the token in local storage, updates the user property in the state and
+      the render method will be called again.
 
   server
     - Will first check if a username and password is entered. If any of the two
@@ -56,9 +63,11 @@ User can sign in.
 User can stay signed in.
   client
     - When the user first visits or reloads the page, the client will check if a
-      token exist in the localStorage
-    - If token exist then they will be shown the
+      token exist in the localStorage. If the token exist then they will be
+      shown the home page instead of the sign-in page.
 
   server
+    - Does nothing
 
   database
+    - Does nothing
